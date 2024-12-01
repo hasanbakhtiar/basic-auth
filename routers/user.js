@@ -1,17 +1,17 @@
 const express = require("express");
-const {
-  userList,
-  userAdd,
-  userEdit,
-  userDelete,
-  singleUser,
-} = require("../../controllers/user");
+const { userAdd, authUser, userList, singleUser } = require("../controllers/user");
+const isAdmin = require("../middlewares/isAdmin");
+const auth = require("../middlewares/auth");
 const router = express.Router();
 
-router.get("/", userList);
-router.get("/:id", singleUser);
-router.post("/", userAdd);
-router.put("/:id", userEdit);
-router.delete("/:id", userDelete);
+
+router.post("/register", userAdd);
+router.post("/login", authUser);
+
+
+router.get("/users",[auth,isAdmin], userList);
+router.get("/:id",[auth,isAdmin], singleUser);
+
+
 
 module.exports = router;

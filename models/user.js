@@ -2,6 +2,7 @@
 const Joi = require("joi");
 const { default: mongoose, Schema } = require("mongoose");
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const userSchema = mongoose.Schema({
     name: {
@@ -26,11 +27,9 @@ const userSchema = mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user'],
+        enum: ['user','admin'],
         default: 'user'
-    },
-    order: [{ type: Schema.Types.ObjectId, ref: "Order" }],
-
+    }
 
 }, { timestamps: true })
 
@@ -52,7 +51,7 @@ const registerValidate = (user) => {
 
 const loginValidate = (user) => {
     const schema = new Joi.object({
-        email: Joi.string().min(7).max(20).email(),
+        email: Joi.string().min(7).max(30).email(),
         password: Joi.string().min(8).required(),
     })
 
@@ -60,7 +59,7 @@ const loginValidate = (user) => {
 }
 
 userSchema.methods.createAuthToken = function () {
-    const decodedToken = jwt.sign({ _id: this._id, name: this.name, surname: this.surname, email: this.email, phone: this.phone, role: this.role, }, 'jwtPrivateKey')
+    const decodedToken = jwt.sign({ _id: this._id, name: this.name, surname: this.surname, email: this.email, phone: this.phone, role: this.role, }, process.env.JWT_KEY)
     return decodedToken;
 }
 
