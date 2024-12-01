@@ -26,15 +26,21 @@ Ensure you have the following installed:
    ```
 3. Install dependencies:
    ```bash
-   npm install or bun install
+   npm install
+   ```
+   or
+   ```bash
+   npm install
    ```
 
 ### Running the Project
 Start the server with the following command:
 ```bash
 npm start 
-    or
-bun start
+```
+or
+```bash
+bun start 
 ```
 
 The application will run on `http://localhost:3000` (or the configured port). You can test the API using a browser or tools like Postman.
