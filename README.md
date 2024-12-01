@@ -50,7 +50,11 @@ The application will run on `http://localhost:3000` (or the configured port). Yo
 | Method | Endpoint       | Description                 | Authentication Required |
 |--------|----------------|-----------------------------|-------------------------|
 | POST   | `/login`       | Authenticate user           | No                      |
+| POST   | `/register`       | Register user           | No                      |
 | GET    | `/weather`   | Access protected resources  | Yes                     |
+For Admin
+| GET    | `/users`   | Access protected resources  | Yes                     |
+| GET    | `/:id`   | Access protected resources  | Yes                     |
 
 ### Example Usage
 - To access protected routes, include a valid `Authorization` header with the format `Basic <base64-encoded-credentials>`.
