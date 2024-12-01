@@ -30,7 +30,7 @@ Ensure you have the following installed:
    ```
    or
    ```bash
-   npm install
+   bun install
    ```
 
 ### Running the Project
