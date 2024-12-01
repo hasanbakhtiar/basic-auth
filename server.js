@@ -9,9 +9,7 @@ app.use(cors());
 app.use(express.json());
 // middleware end
 
-const userRoute = require('./routers/user');
 
-app.use('/product',productRoute);
 
 
 connectdb();
