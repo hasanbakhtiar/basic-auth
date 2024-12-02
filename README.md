@@ -51,7 +51,7 @@ The application will run on `http://localhost:3000` (or the configured port). Yo
 |--------|----------------|-----------------------------|-------------------------|
 | POST   | `/login`       | Authenticate user           | No                      |
 | POST   | `/register`       | Register user           | No                      |
-| GET    | `/weather`   | Access protected resources  | Yes                     |
+| GET    | `/data`   | Access protected resources  | Yes                     |
 For Admin
 | GET    | `/users`   | Access protected resources  | Yes                     |
 | GET    | `/:id`   | Access protected resources  | Yes                     |

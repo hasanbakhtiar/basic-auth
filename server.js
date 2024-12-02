@@ -12,8 +12,8 @@ app.use(express.json());
 const userRouter = require('./routers/user');
 const weatherRouter = require('./routers/weather');
 
+app.use('/data',weatherRouter);
 app.use('/',userRouter);
-app.use('/weather',weatherRouter);
 
 
 
